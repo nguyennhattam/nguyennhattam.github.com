@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+<title>Adtima</title>
+<style type="text/css">
+*{margin:0;padding:0;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
+body{background-color:#fff;width:100%}
+body.autoplay .img-touch{display:none!important}
+.responsive-img, .img-responsive{display:block;max-width:100%;height:auto;margin:0 auto}
+	.img-touch{position:absolute;top:50%;left:50%;width:250px;height:200px;margin-top:-100px;margin-left:-125px}
+	.ctn-1{position:absolute;top:70%;max-width:100%;display:block;height:auto;margin:0 auto;text-align:center}
+	.ctn-1 img{display:inline-block;max-width:90%}
+	.hidden{display:none!important}
+	.show{display:block!important}
+</style>
+<script type="text/javascript" src="shake.js"></script>
+<script type="text/javascript">
+	var level = 0;
+	var maxLevel = 5;
+	var canShake = 1;
+	var delayShake = 1500;
+	var intervalAutoplay = -1;
+	
+	window.onload = function() {
+		//create a new instance of shake.js.
+		var myShakeEvent = new Shake({
+			threshold: 10
+		});
+		// start listening to device motion
+		myShakeEvent.start();
+		// register a shake event
+		window.addEventListener('shake', shakeEventDidOccur, false);
+		intervalAutoplay = setTimeout(autoplayAnimation, 3000);
+		
+	};
+	
+	function autoplayAnimation() {
+		document.body.className = " autoplay";
+	}
+	
+	//shake event callback
+	function shakeEventDidOccur () {
+		//put your own code here etc.
+		alert('canShake = ' + canShake);
+		clearTimeout(intervalAutoplay);
+		
+		if(canShake) {
+			canShake = 0;
+			level++;
+			setTimeout(activeShake, delayShake);
+			alert('level = ' + level);
+			// TODO : play animation layout ===================================================
+			switch(level)
+			{
+				case 1: // level 1
+					document.getElementById('touchIcon').classList.add('hidden');
+					document.getElementById('page1').classList.add('hidden');
+					document.getElementById('page2').classList.remove('hidden');
+					document.getElementById('page2').classList.add('show');
+				break;
+				case 2: // level 2
+					document.getElementById('page2').classList.remove('show');
+					document.getElementById('page2').classList.add('hidden');
+					document.getElementById('page3').classList.remove('hidden');
+					document.getElementById('page3').classList.add('show');
+				break;
+				case 3: // level 3
+				
+				break;
+				case 4: // level 4
+				
+				break;
+			}
+			//=================================================================================
+			
+		}
+	}
+	
+	function activeShake() {
+		if(level < maxLevel) canShake = 1;
+	}
+	
+	function resetShake() {
+		level = 0;
+		
+		// TODO : should reset layout =============================================================
+		
+		//=========================================================================================
+		
+	}
+</script>
+</head>
+<body>
+	<img id='touchIcon' class="img-touch" src="images/touch.png" alt="Adtima">
+	<div id="page1" class="">
+		<img class="responsive-img" src="images/bg1.jpg" alt="Adtima">
+		<div class="ctn-1"><img src="images/block1.png"></div>
+	</div>
+	<div id="page2" class="hidden">
+		<img class="responsive-img" src="images/bg2.jpg" alt="Adtima">
+		<div class="ctn-1"><img src="images/block2.png"></div>
+	</div>
+	<div id="page3" class="hidden">
+		<img class="responsive-img" src="images/bg3.jpg" alt="Adtima">
+		<div class="ctn-1"><img src="images/block3.png"></div>
+	</div>
+</body>
+</html>
