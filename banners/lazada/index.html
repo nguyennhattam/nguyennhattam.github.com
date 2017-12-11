@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+<title>Adtima</title>
+<style type="text/css">
+*{margin:0;padding:0;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+body{background:url(images/BG.png) top center fixed;width:100%;height:100%}
+.img-responsive{display:block;max-width:100%;height:auto;margin:0 auto}
+	.adtima-fc-main-body{position:relative;width:1000px;height:2000px;margin:0 auto;padding:90px}
+
+	.adtima-fc-top{display:block;position:absolute;top:65px;left:0;right:0;text-align:center}
+	.adtima-fc-top .fc-link{display:block;width:1000px;height:90px;margin:0 auto;cursor:pointer}
+	
+    .adtima-fc-left{display:block;position:absolute;top:155px;left:-180px;width:180px;height:550px}
+	.adtima-fc-left img{position:absolute;top:0;right:0}
+    .adtima-fc-left .fc-link{position:absolute;top:0;right:0;z-index:18;display:block;cursor:pointer}
+	
+	.adtima-fc-right{display:block;position:absolute;top:155px;right:-180px;width:180px;height:550px}
+	.adtima-fc-right img{position:absolute;top:0;right:0}
+    .adtima-fc-right .fc-link{position:absolute;top:0;left:0;z-index:18;display:block;cursor:pointer}
+</style>
+<script src="https://stc.support.brand.zing.vn/static/demo/2016/cache/createjs-2015.11.26.min.js"></script>
+<!-- write your code here -->
+<script src="index.js?1512707768364"></script>
+<script>
+var canvas, stage, exportRoot, fnStartAnimation, fnPauseAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	createjs.MotionGuidePlugin.install();
+	var comp=AdobeAn.getComposition("88D2BDDE38522C4DB1D0F0FBB60B8CF4");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function resizeAdtimaPageWidth(pageWidth) {
+	window.adPageWidth = pageWidth;
+	if(canvas && canvas.onResizeAds) {
+		canvas.onResizeAds(pageWidth);
+	}
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.lazada_JS_2000x1200();
+	stage = new lib.Stage(canvas);
+	stage.addChild(exportRoot);	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		createjs.Ticker.setFPS(lib.properties.fps);
+		createjs.Ticker.addEventListener("tick", stage);
+	}	 
+	AdobeAn.compositionLoaded(lib.properties.id);
+	//fnStartAnimation();
+	
+	fnPauseAnimation = function() {
+		createjs.Ticker.removeEventListener("tick", stage);
+	}
+}
+</script>
+</head>
+<body onload="init();">
+	<div class="adtima-fc-main-body" id='main-body'>
+		<div class="adtima-fc-top">
+			<div class="fc-link" onclick="clickLandingPage();" style="background-color:rgba(255,255,255,0.5)">
+				<img src="images/Zing_0008_Top_text_2.png">
+				<br/>
+				<img src="images/Zing_0007_Top_text_1.png">
+			</div>
+		</div>
+		<div class="adtima-fc-left">
+			<div>
+				<img src="images/Click.png" style="top: 32px;right: 1px;">
+				<img src="images/Left.png" style="top:126px;right:-54px;">
+			</div>
+			
+			<div class="fc-link" onclick="clickLandingPage();" style="background-color:rgba(255,255,255,0.5);width:130px;height:420px;display:none;"></div>
+		</div>
+		<div class="adtima-fc-right">
+			<div>
+				<img src="images/Click.png" style="top: 32px;left: 1px;">
+				<img src="images/Left.png" style="top:126px;left:-82px;">
+			</div>
+			<div class="fc-link" onclick="clickLandingPage();" style="background-color:rgba(255,255,255,0.5);width:130px;height:420px;display:none;"></div>
+		</div>
+	</div>
+	<canvas id="canvas" width="2000" height="1200" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 0.00);display:none;cursor:pointer;"></canvas>
+<script>
+function clickLandingPage() {
+    if('getTargetUrl' in window) {
+		var clickTAG = getTargetUrl();
+		window.open(clickTAG, "_blank");
+	} else {
+		console.log('Pls check getTargetUrl method!');
+	}
+}    
+
+////////////////////////////////////////////////////////////
+// resizeAdtima
+////////////////////////////////////////////////////////////
+function resizeAdtimaPageWidth(pageWidth) {
+	var mainBody = document.getElementById('main-body');
+	mainBody.style.width = pageWidth + "px";
+} 
+
+function transperentClickTag() {
+	var fcClick = document.getElementsByClassName('fc-link');
+	for(var i = 0; i < fcClick.length; i++) {
+		fcClick[i].style['background-color'] = 'rgba(255,255,255,0)';
+	}
+}
+
+if('getTargetUrl' in window) {
+	transperentClickTag();
+}
+
+function loadEffect(){
+	var mainBody = document.getElementById('main-body');
+	mainBody.style.display = "none";
+	canvas.style.display = "block";
+	
+	fnStartAnimation();
+	if(exportRoot){
+		exportRoot.mcMain.gotoAndPlay('Canvas');
+	}
+	if(canvas && canvas.video && canvas.video.fnPauseVideo) {
+		canvas.video.fnReplayVideo();
+	}
+}
+function stopEffect(){
+	var mainBody = document.getElementById('main-body');
+	mainBody.style.display = "block";
+	canvas.style.display = "none";
+	
+	fnPauseAnimation();
+	if(exportRoot){
+		exportRoot.mcMain.gotoAndPlay(0);
+	}
+	
+	if(canvas && canvas.video && canvas.video.fnPauseVideo) {
+		canvas.video.fnPauseVideo();
+	}
+}
+
+
+function hideCanvasOverlay(){window.parent.AdtimaCanvasBanner.hideCanvasOverlay()}
+function startEffect(){window.parent.AdtimaCanvasBanner.startEffect()}
+////////////////////////////////////////////////////////////
+// resizeAdtima
+////////////////////////////////////////////////////////////
+</script>
+</body>
+</html>
