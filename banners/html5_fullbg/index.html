@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+<title>Adtima</title>
+<style type="text/css">
+*{margin:0;padding:0;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+body{background:url(BG.jpg) top center fixed;width:100%;height:100%}
+.img-responsive{display:block;max-width:100%;height:auto;margin:0 auto}
+	.adtima-fc-main-body{position:relative;width:1000px;height:2000px;margin:0 auto;padding:90px}
+
+	.adtima-fc-top{display:block;position:absolute;top:65px;left:0;right:0;text-align:center}
+	.adtima-fc-top .fc-link{display:block;width:1000px;height:90px;margin:0 auto;cursor:pointer}
+	
+    .adtima-fc-left{display:block;position:absolute;top:155px;left:-180px;width:180px;height:550px}
+	.adtima-fc-left img{position:absolute;top:0;right:0}
+    .adtima-fc-left .fc-link{position:absolute;top:0;right:0;z-index:18;display:block;cursor:pointer}
+	
+	.adtima-fc-right{display:block;position:absolute;top:155px;right:-180px;width:180px;height:550px}
+    .adtima-fc-right .fc-link{position:absolute;top:0;left:0;z-index:18;display:block;cursor:pointer}
+</style>
+
+</head>
+<body>
+	<div class="adtima-fc-main-body" id='main-body'>
+		<div class="adtima-fc-top">
+			<div class="fc-link" onclick="clickLandingPage();" style="background-color:rgba(255,255,255,0.5)">
+				<img src="Top.png">
+			</div>
+		</div>
+		<div class="adtima-fc-left">
+			<img src="Left.png">
+			<div class="fc-link" onclick="clickLandingPage();" style="background-color:rgba(255,255,255,0.5);width:130px;height:420px"></div>
+		</div>
+		<div class="adtima-fc-right">
+			<img src="Right.png">
+			<div class="fc-link" onclick="clickLandingPage();" style="background-color:rgba(255,255,255,0.5);width:130px;height:420px"></div>
+		</div>
+	</div>
+<script>
+function clickLandingPage() {
+    if('getTargetUrl' in window) {
+		var clickTAG = getTargetUrl();
+		window.open(clickTAG, "_blank");
+	} else {
+		console.log('Pls check getTargetUrl method!');
+	}
+}    
+
+////////////////////////////////////////////////////////////
+// resizeAdtima
+////////////////////////////////////////////////////////////
+function resizeAdtimaPageWidth(pageWidth) {
+	var mainBody = document.getElementById('main-body');
+	mainBody.style.width = pageWidth + "px";
+} 
+
+function transperentClickTag() {
+	var fcClick = document.getElementsByClassName('fc-link');
+	for(var i = 0; i < fcClick.length; i++) {
+		fcClick[i].style['background-color'] = 'rgba(255,255,255,0)';
+	}
+}
+
+if('getTargetUrl' in window) {
+	transperentClickTag();
+}
+
+
+////////////////////////////////////////////////////////////
+// resizeAdtima
+////////////////////////////////////////////////////////////
+</script>
+</body>
+</html>
