@@ -20,6 +20,10 @@
 	left:0;right:0;
 	top:0;bottom:0;
   }
+  canvas{
+	  width:100%;
+	  height:auto;
+	}
 </style>
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
 <script src="mobile_e_thiep.js?1536688318750"></script>
@@ -94,7 +98,7 @@ function handleComplete(evt,comp) {
 			stage.tickOnUpdate = true;		
 		}
 	}
-	makeResponsive(true,'both',false,1);	
+	//makeResponsive(true,'both',false,1);	
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
 }
