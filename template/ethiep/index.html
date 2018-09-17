@@ -20,6 +20,10 @@
 	left:0;right:0;
 	top:0;bottom:0;
   }
+  canvas{
+	  width:100%;
+	  height:auto;
+	}
 </style>
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
 <script src="index.js?1537202854211"></script>
@@ -97,18 +101,18 @@ function handleComplete(evt,comp) {
 			stage.tickOnUpdate = true;		
 		}
 	}
-	makeResponsive(true,'both',false,1);	
+	//makeResponsive(true,'both',false,1);	
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
 }
 </script>
 <!-- write your code here -->
 </head>
-<body onload="init();" style="margin:0px;">
-	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:720px; height:1280px">
+<body onload="init();" style="margin:0px;width:100%;height:auto;">
 		<canvas id="canvas" width="720" height="1280" style="position: absolute; display: none; background-color:rgba(255, 255, 255, 1.00);"></canvas>
 		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:720px; height:1280px; position: absolute; left: 0px; top: 0px; display: none;">
 		</div>
+		<canvas id="canvas" width="720" height="1280" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
 	</div>
     <div id='_preload_div_' style='position:absolute; top:0; left:0; display: inline-block; height:1280px; width: 720px; text-align: center;'>	<span style='display: inline-block; height: 100%; vertical-align: middle;'></span>	<img src=images/_preloader.gif?1537202854213 style='vertical-align: middle; max-height: 100%'/></div>
 </body>
