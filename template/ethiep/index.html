@@ -28,11 +28,10 @@
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
 <script src="index.js?1537202854211"></script>
 <script>
-var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+var canvas, stage, exportRoot, anim_container, fnStartAnimation;
 function init() {
 	canvas = document.getElementById("canvas");
 	anim_container = document.getElementById("animation_container");
-	dom_overlay_container = document.getElementById("dom_overlay_container");
 	var comp=AdobeAn.getComposition("63ABD2DA91C2904AB4180AEC850F2BA3");
 	var lib=comp.getLibrary();
 	var loader = new createjs.LoadQueue(false);
@@ -109,11 +108,7 @@ function handleComplete(evt,comp) {
 <!-- write your code here -->
 </head>
 <body onload="init();" style="margin:0px;width:100%;height:auto;">
-		<canvas id="canvas" width="720" height="1280" style="position: absolute; display: none; background-color:rgba(255, 255, 255, 1.00);"></canvas>
-		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:720px; height:1280px; position: absolute; left: 0px; top: 0px; display: none;">
-		</div>
-		<canvas id="canvas" width="720" height="1280" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
-	</div>
+	<canvas id="canvas" width="720" height="1280" style="position: absolute; display: none; background-color:rgba(255, 255, 255, 1.00);"></canvas>
     <div id='_preload_div_' style='position:absolute; top:0; left:0; display: inline-block; height:1280px; width: 720px; text-align: center;'>	<span style='display: inline-block; height: 100%; vertical-align: middle;'></span>	<img src=images/_preloader.gif?1537202854213 style='vertical-align: middle; max-height: 100%'/></div>
 </body>
 </html>
