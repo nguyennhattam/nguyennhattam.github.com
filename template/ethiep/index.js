@@ -2,9 +2,7 @@
 
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
-lib.ssMetadata = [
-		{name:"mobile_e_thiep_atlas_", frames: [[722,0,720,1280],[1444,1043,322,67],[1444,0,402,445],[722,1282,606,387],[0,0,720,1280],[1848,0,118,166],[1756,883,204,111],[1444,883,310,158],[0,1282,720,984],[1945,413,87,139],[1848,168,155,113],[1848,283,128,128],[1444,447,499,290],[1444,1112,426,41],[1444,739,517,142]]}
-];
+lib.ssMetadata = [];
 
 
 // symbols:
@@ -12,108 +10,93 @@ lib.ssMetadata = [
 
 
 (lib.bg = function() {
-	this.spriteSheet = ss["mobile_e_thiep_atlas_"];
-	this.gotoAndStop(0);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.bg);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,720,1280);
 
 
 (lib.Bitmap14 = function() {
-	this.spriteSheet = ss["mobile_e_thiep_atlas_"];
-	this.gotoAndStop(1);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.Bitmap14);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,322,67);
 
 
 (lib.egg_6 = function() {
-	this.spriteSheet = ss["mobile_e_thiep_atlas_"];
-	this.gotoAndStop(2);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.egg_6);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,402,445);
 
 
 (lib.f2_bd = function() {
-	this.spriteSheet = ss["mobile_e_thiep_atlas_"];
-	this.gotoAndStop(3);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.f2_bd);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,606,387);
 
 
 (lib.f2_bg = function() {
-	this.spriteSheet = ss["mobile_e_thiep_atlas_"];
-	this.gotoAndStop(4);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.f2_bg);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,720,1280);
 
 
 (lib.hat = function() {
-	this.spriteSheet = ss["mobile_e_thiep_atlas_"];
-	this.gotoAndStop(5);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.hat);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,118,166);
 
 
 (lib.intro_1st = function() {
-	this.spriteSheet = ss["mobile_e_thiep_atlas_"];
-	this.gotoAndStop(6);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.intro_1st);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,204,111);
 
 
 (lib.intro_bd = function() {
-	this.spriteSheet = ss["mobile_e_thiep_atlas_"];
-	this.gotoAndStop(7);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.intro_bd);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,310,158);
 
 
 (lib.intro_cover = function() {
-	this.spriteSheet = ss["mobile_e_thiep_atlas_"];
-	this.gotoAndStop(8);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.intro_cover);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,720,984);
 
 
 (lib.left = function() {
-	this.spriteSheet = ss["mobile_e_thiep_atlas_"];
-	this.gotoAndStop(9);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.left);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,87,139);
 
 
 (lib.right = function() {
-	this.spriteSheet = ss["mobile_e_thiep_atlas_"];
-	this.gotoAndStop(10);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.right);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,155,113);
 
 
 (lib.sun = function() {
-	this.spriteSheet = ss["mobile_e_thiep_atlas_"];
-	this.gotoAndStop(11);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.sun);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,128,128);
 
 
 (lib.txt1 = function() {
-	this.spriteSheet = ss["mobile_e_thiep_atlas_"];
-	this.gotoAndStop(12);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.txt1);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,499,290);
 
 
 (lib.txt2 = function() {
-	this.spriteSheet = ss["mobile_e_thiep_atlas_"];
-	this.gotoAndStop(13);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.txt2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,426,41);
 
 
 (lib.txt3 = function() {
-	this.spriteSheet = ss["mobile_e_thiep_atlas_"];
-	this.gotoAndStop(14);
-}).prototype = p = new cjs.Sprite();
-// helper functions:
+	this.initialize(img.txt3);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,540,142);// helper functions:
 
 function mc_symbol_clone() {
 	var clone = this._cloneProps(new this.constructor(this.mode, this.startPosition, this.loop));
@@ -132,6 +115,23 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 	}
 
 
+(lib.Symbol10 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer_1
+	this.instance = new lib.hat();
+	this.instance.parent = this;
+	this.instance.setTransform(-54,-264);
+
+	this.instance_1 = new lib.sun();
+	this.instance_1.parent = this;
+	this.instance_1.setTransform(-64,-128);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
+
+}).prototype = getMCSymbolPrototype(lib.Symbol10, new cjs.Rectangle(-64,-264,128,264), null);
+
+
 (lib.Symbol9 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
@@ -146,11 +146,29 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
 
-}).prototype = getMCSymbolPrototype(lib.Symbol9, new cjs.Rectangle(0,0,517,275), null);
+}).prototype = getMCSymbolPrototype(lib.Symbol9, new cjs.Rectangle(0,0,540,275), null);
 
 
 (lib.Symbol8 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
+
+	// timeline functions:
+	this.frame_0 = function() {
+		this.txt.text = window.fullname;
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
+
+	// Layer_2
+	this.txt = new cjs.Text("Cô Trang", "bold 30px 'Arial'", "#FD0303");
+	this.txt.name = "txt";
+	this.txt.lineHeight = 36;
+	this.txt.lineWidth = 254;
+	this.txt.parent = this;
+	this.txt.setTransform(339,174);
+
+	this.timeline.addTween(cjs.Tween.get(this.txt).wait(1));
 
 	// Layer_1
 	this.instance = new lib.txt1();
@@ -158,7 +176,7 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
-}).prototype = getMCSymbolPrototype(lib.Symbol8, new cjs.Rectangle(0,0,499,290), null);
+}).prototype = getMCSymbolPrototype(lib.Symbol8, new cjs.Rectangle(0,0,595,290), null);
 
 
 (lib.Symbol7 = function(mode,startPosition,loop) {
@@ -172,23 +190,6 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = getMCSymbolPrototype(lib.Symbol7, new cjs.Rectangle(-161,-33.5,322,67), null);
-
-
-(lib.Symbol6 = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
-
-	// Layer_1
-	this.instance = new lib.hat();
-	this.instance.parent = this;
-	this.instance.setTransform(-54,-264);
-
-	this.instance_1 = new lib.sun();
-	this.instance_1.parent = this;
-	this.instance_1.setTransform(-64,-128);
-
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
-
-}).prototype = getMCSymbolPrototype(lib.Symbol6, new cjs.Rectangle(-64,-264,128,264), null);
 
 
 (lib.Symbol5 = function(mode,startPosition,loop) {
@@ -280,6 +281,19 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 }).prototype = getMCSymbolPrototype(lib.ga_l, new cjs.Rectangle(-87,0,87,139), null);
 
 
+(lib.Symbol6 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer_1
+	this.instance = new lib.Symbol10();
+	this.instance.parent = this;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({rotation:3.9},7).to({rotation:0},6).to({rotation:-7.2},6).to({rotation:-3.5},3).to({rotation:0},3).wait(53));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-64,-264,128,264);
+
+
 (lib.ga = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
@@ -313,12 +327,23 @@ p.nominalBounds = new cjs.Rectangle(-201,-222.5,402,445);
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
+	this.frame_0 = function() {
+		function getUrlVars() {
+		    var vars = {};
+		    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+		        vars[key] = decodeURIComponent(value);
+		    });
+		    return vars;
+		}
+		
+		window.fullname = getUrlVars()["name"];
+	}
 	this.frame_143 = function() {
 		this.stop();
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(143).call(this.frame_143).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(143).call(this.frame_143).wait(1));
 
 	// Layer_16
 	this.instance = new lib.ga();
@@ -353,7 +378,7 @@ p.nominalBounds = new cjs.Rectangle(-201,-222.5,402,445);
 	this.instance_3.alpha = 0;
 	this.instance_3._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(87).to({_off:false},0).to({x:112.5,y:308,alpha:1},4).to({x:228.5,y:272},4).to({x:344.5,y:348},4).wait(10).to({rotation:3.5},5).to({rotation:0},4).to({rotation:-5.2},4).to({rotation:0},5).to({rotation:3.7},4).to({rotation:0},4).to({rotation:-8},4).to({rotation:0},4).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(87).to({_off:false},0).to({x:112.5,y:308,alpha:1},4).to({x:228.5,y:272},4).to({x:344.5,y:348},4).wait(45));
 
 	// Layer_14
 	this.instance_4 = new lib.Symbol7();
@@ -429,7 +454,21 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/mobile_e_thiep_atlas_.png?1536688318716", id:"mobile_e_thiep_atlas_"}
+		{src:"images/bg.png?1537202854147", id:"bg"},
+		{src:"images/Bitmap14.jpg?1537202854147", id:"Bitmap14"},
+		{src:"images/egg_6.png?1537202854147", id:"egg_6"},
+		{src:"images/f2_bd.png?1537202854147", id:"f2_bd"},
+		{src:"images/f2_bg.jpg?1537202854147", id:"f2_bg"},
+		{src:"images/hat.png?1537202854147", id:"hat"},
+		{src:"images/intro_1st.png?1537202854147", id:"intro_1st"},
+		{src:"images/intro_bd.png?1537202854147", id:"intro_bd"},
+		{src:"images/intro_cover.png?1537202854147", id:"intro_cover"},
+		{src:"images/left.png?1537202854147", id:"left"},
+		{src:"images/right.png?1537202854147", id:"right"},
+		{src:"images/sun.png?1537202854147", id:"sun"},
+		{src:"images/txt1.png?1537202854147", id:"txt1"},
+		{src:"images/txt2.png?1537202854147", id:"txt2"},
+		{src:"images/txt3.png?1537202854147", id:"txt3"}
 	],
 	preloads: []
 };
